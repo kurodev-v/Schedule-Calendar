@@ -44,9 +44,7 @@ interface ScheduleFormProps {
 // Zodスキーマを更新
 const formSchema = z.object({
   title: z.string().min(1, { message: "タイトルは必須です。" }),
-  date: z.date({
-    required_error: "日付は必須です。",
-  }),
+  date: z.date({ message: "日付は必須です。" }),
   time: z.string().optional(), // 時刻をオプショナルに変更
   category: z.string().optional(),
   platform: z.string().optional(),
