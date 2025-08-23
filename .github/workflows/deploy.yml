@@ -36,7 +36,7 @@ jobs:
           version: 10
 
       - name: Install dependencies
-        run: pnpm install --no-lock # Bypass lockfile for debugging
+        run: pnpm install --frozen-lockfile
 
       - name: Build
         run: pnpm run build
