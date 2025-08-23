@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import Calendar from "@/components/calendar";
-import { format, isSameDay, parseISO, compareAsc } from "date-fns";
+import { format, isSameDay, compareAsc } from "date-fns";
 import { ScheduleItem } from "@/types/schedule";
 import { loadSchedule, saveSchedule } from "@/lib/schedule-storage";
 import ScheduleForm from "@/components/schedule-form";
@@ -251,7 +251,7 @@ export default function Home() {
                     </DialogHeader>
                     <ScheduleForm
                       initialData={editingItem}
-                      initialDate={selectedDate}
+                      initialDate={selectedDate || undefined}
                       onSubmit={handleAddOrUpdateSchedule}
                       onCancel={() => setIsFormOpen(false)}
                     />

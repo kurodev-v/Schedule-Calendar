@@ -1,6 +1,6 @@
 import React from 'react';
 import { ScheduleItem } from '@/types/schedule';
-import { format, parseISO } from 'date-fns';
+import { format } from 'date-fns';
 
 interface MinimalTemplateProps {
   scheduleItem: ScheduleItem;
