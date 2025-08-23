@@ -9,7 +9,7 @@ interface GamersTemplateProps {
 const GamersTemplate: React.FC<GamersTemplateProps> = ({ scheduleItem }) => {
   if (!scheduleItem) return null;
 
-  const { title, date, time, category, platform, memo } = scheduleItem;
+  const { title, date, time, category, platform, notes } = scheduleItem;
 
   return (
     <div className="w-[1280px] h-[720px] bg-gray-900 text-white font-sans p-12 flex flex-col justify-between">
@@ -36,7 +36,7 @@ const GamersTemplate: React.FC<GamersTemplateProps> = ({ scheduleItem }) => {
       {/* Footer */}
       <div className="flex justify-between items-end">
         <div className="text-left">
-          <p className="text-2xl">{memo}</p>
+          <p className="text-2xl">{notes}</p>
         </div>
         <div className="text-right">
           <p className="text-5xl font-black tracking-wide">{format(date, "MM/dd")} <span className="text-cyan-500">|</span> {time}</p>
