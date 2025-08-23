@@ -176,7 +176,7 @@ const Calendar: React.FC<CalendarProps> = ({ onDateClick, onDateDoubleClick, vie
          {dailySchedule.length > 0 ? (
             dailySchedule.map(item => (
               <div key={item.id} className="bg-blue-200 text-blue-800 rounded-sm px-2 py-1 mb-1 whitespace-normal">
-                {item.title} {item.time} {item.category} {item.platform} {item.memo}
+                {item.title} {item.time} {item.category} {item.platform} {item.notes}
               </div>
             ))
           ) : (
