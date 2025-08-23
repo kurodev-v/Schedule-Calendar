@@ -12,7 +12,14 @@ export const loadSchedule = (): ScheduleItem[] => {
     const parsedData: ScheduleItem[] = data ? JSON.parse(data) : [];
     return parsedData.map(item => ({
       ...item,
-      date: (typeof item.date === 'string' && item.date !== '') ? parseISO(item.date) : item.date // Convert date string to Date object using parseISO, with robust check
+      import { ScheduleItem } from "@/types/schedule";
+
+const STORAGE_KEY = "vtuber-schedule";
+
+export const loadSchedule = (): ScheduleItem[] => {
+  const data = localStorage.getItem(STORAGE_KEY);
+  return data ? JSON.parse(data) : [];
+};
     }));
   } catch (error) {
     console.error("Failed to load schedule from localStorage", error);
