@@ -207,7 +207,7 @@ export default function Home() {
       </header>
 
       <div className="flex-grow p-4 bg-gray-100">
-        <h1 className="text-2xl font-bold mb-4 hidden md:block">カレンダー表示エリア</h1>
+        <h1 className="text-2xl font-bold mb-4 hidden md:block">スケジュールカレンダー</h1>
         <Tabs value={viewMode} onValueChange={(value) => setViewMode(value as 'month' | 'week' | 'day')} className="mb-4">
           <TabsList>
             <TabsTrigger value="month" className="px-6 py-2 text-base">月</TabsTrigger>
