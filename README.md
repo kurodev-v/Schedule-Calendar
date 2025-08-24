@@ -1,36 +1,91 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Vtuber Schedule Calendar
 
-## Getting Started
+Vtuberの配信スケジュール管理を効率化するために作られた、多機能なスケジュールカレンダーアプリケーションです。
+カレンダーでの直感的な予定管理から、週間スケジュール画像の生成、SNS投稿文の作成まで、活動に必要なタスクをサポートします。
 
-First, run the development server:
+## ✨ 主な機能 (Features)
+
+- **カレンダー表示**: 月・週・日単位での表示切替に対応した、見やすいカレンダー。
+- **予定管理**: 配信や動画投稿などの予定を簡単に追加・編集・削除。
+- **画像生成**: 登録した予定を元に、カスタマイズ可能なテンプレートを使って週間スケジュール画像を簡単に生成・ダウンロード。
+- **SNS投稿支援**: 予定情報を含んだSNS投稿文をテンプレートから自動生成。
+- **レスポンシブデザイン**: PCでもモバイルでも、デバイスに応じた最適なUIで操作可能。
+
+## 🛠️ 技術スタック (Tech Stack)
+
+- **Framework**: [Next.js](https://nextjs.org/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **UI Library**: [React](https://react.dev/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **UI Components**: [shadcn/ui](https://ui.shadcn.com/)
+- **Image Generation**: [html-to-image](https://github.com/bubkoo/html-to-image)
+- **Date Handling**: [date-fns](https://date-fns.org/)
+
+## 🚀 使い方 (Getting Started)
+
+### 前提条件
+
+- [Node.js](https://nodejs.org/) (v18.17 or later)
+- [pnpm](https://pnpm.io/)
+
+### インストールと起動
+
+1. **リポジトリをクローンします:**
+   ```bash
+   git clone https://github.com/kurodev-v/Schedule-Calendar.git
+   ```
+
+2. **プロジェクトディレクトリに移動します:**
+   ```bash
+   cd Schedule-Calendar
+   ```
+
+3. **依存関係をインストールします:**
+   ```bash
+   pnpm install
+   ```
+
+4. **開発サーバーを起動します:**
+   ```bash
+   pnpm run dev
+   ```
+
+5. ブラウザで [http://localhost:3000](http://localhost:3000) を開きます。
+
+### ビルド
+
+本番用のファイルを生成するには、以下のコマンドを実行します。
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📖 操作方法
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### カレンダーエリア
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **日付を選択**: 日付セルをクリックすると、その日の予定が右側のパネル（モバイルでは下部）に表示されます。
+- **新規予定の追加 (PC)**: 日付セルをダブルクリックすると、その日付で新規予定追加フォームが開きます。
 
-## Learn More
+### サイドパネル (PC) / ハンバーガーメニュー (モバイル)
 
-To learn more about Next.js, take a look at the following resources:
+画面右側（モバイルでは画面右上のハンバーガーメニュー）から、以下の機能にアクセスできます。
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1.  **予定管理**
+    - **新しい予定を追加**: 新しい配信や動画の予定を作成します。
+    - **選択日の予定**: カレンダーで選択した日付の予定が表示されます。
+    - **全ての予定**: 登録されている全ての予定が日付順に表示されます。
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2.  **画像設定**
+    - **テンプレートを選択**: 週間スケジュール画像の見た目を2種類から選択します。
+    - **予定を選択**: 画像に含めたい予定を選択します。
+    - **プレビュー**: 生成される画像を確認できます。
+    - **ダウンロード**: PNGまたはJPEG形式で画像をダウンロードします。
 
-## Deploy on Vercel
+3.  **SNSテンプレート**
+    - 予定情報を元に生成されるSNS投稿文のテンプレートを自由に編集・保存できます。
+    - 投稿によく使うハッシュタグを登録しておくことも可能です。
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### フローティングボタン (モバイル)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+モバイル表示時、カレンダーで日付を選択すると画面右下に「+」ボタンが表示されます。これをタップすると、選択中の日付で素早く新しい予定を追加できます。

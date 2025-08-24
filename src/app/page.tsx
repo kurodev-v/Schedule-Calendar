@@ -6,13 +6,11 @@ import Calendar from "@/components/calendar";
 import { format, isSameDay, compareAsc } from "date-fns";
 import { ScheduleItem } from "@/types/schedule";
 import { loadSchedule, saveSchedule } from "@/lib/schedule-storage";
-import ScheduleForm from "@/components/schedule-form";
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
 import {
   AlertDialog,
@@ -26,16 +24,7 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import MinimalTemplate from "@/components/image-templates/minimal-template";
-import GamersTemplate from "@/components/image-templates/gamers-template";
 import { toPng, toJpeg } from 'html-to-image';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 
 import { Menu, Plus } from "lucide-react";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
@@ -122,16 +111,16 @@ export default function Home() {
 
   const handleCopySNS = (item: ScheduleItem) => {
     const template = snsTemplate || "";
-    const timeString = item.time === '未定' || !item.time ? '未定' : `${item.time}～`;
+    const timeString = item.time === '未定' || !item.time ? `${item.time}～` : '未定';
     let finalContent = template
-      .replace(/\${{\s*title\s*}}/g, item.title)
-      .replace(/\${{\s*date\s*}}/g, format(new Date(item.date), "yyyy-MM-dd"))
-      .replace(/\${{\s*time\s*}}/g, timeString)
-      .replace(/\${{\s*category\s*}}/g, item.category)
-      .replace(/\${{\s*notes\s*}}/g, item.notes || '特になし')
-      .replace(/\${{\s*platform\s*}}/g, item.platform)
-      .replace(/\${{\s*hashtag_title\s*}}/g, item.title.replace(/\s/g, ''))
-      .replace(/\${{\s*hashtag_vtuber\s*}}/g, '#Vtuber');
+      .replace(/\${{s*title\s*}}/g, item.title)
+      .replace(/\${{s*date\s*}}/g, format(new Date(item.date), "yyyy-MM-dd"))
+      .replace(/\${{s*time\s*}}/g, timeString)
+      .replace(/\${{s*category\s*}}/g, item.category)
+      .replace(/\${{s*notes\s*}}/g, item.notes || '特になし')
+      .replace(/\${{s*platform\s*}}/g, item.platform)
+      .replace(/\${{s*hashtag_title\s*}}/g, item.title.replace(/\s/g, ''))
+      .replace(/\${{s*hashtag_vtuber\s*}}/g, '#Vtuber');
 
     const hashtagsToAdd = favoriteHashtags.split(' ').filter(tag => tag.startsWith('#') && tag.length > 1).join(' ');
     finalContent += (hashtagsToAdd ? `\n${hashtagsToAdd}` : '');
